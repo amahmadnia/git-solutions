@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changing Author of a Commit</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 50px;
+        line-height: 1.6;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        color: #666;
+      }
+      code {
+        background-color: #f0f0f0;
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Changing the Author of a Commit in Git</h1>
+    <p>
+      To change the author of a commit, you can use the
+      <code>git commit --amend</code> command with the
+      <code>--author</code> flag. Here's how you can do it:
+    </p>
+    <pre>
+        <code>git commit --amend --author="New Author Name &lt;email@example.com&gt;"</code>
+    </pre>
+    <p>
+      Replace <code>"New Author Name &lt;email@example.com&gt;"</code> with the
+      new author's name and email address.
+    </p>
+    <p>
+      In your case, since you want to change the author of a specific commit,
+      you can use the following steps:
+    </p>
+    <ol>
+      <li>
+        Identify the commit hash of the commit you want to change the author for
+        (which you've already done).
+      </li>
+      <li>
+        Use the <code>git rebase -i</code> command to start an interactive
+        rebase session.
+      </li>
+      <li>
+        Replace <code>pick</code> with <code>edit</code> next to the commit you
+        want to change.
+      </li>
+      <li>
+        Amend the commit using the
+        <code
+          >git commit --amend --author="New Author Name
+          &lt;email@example.com&gt;"</code
+        >
+        command.
+      </li>
+      <li>Continue the rebase with <code>git rebase --continue</code>.</li>
+      <li>
+        If you've already pushed the commit you've modified, you may need to
+        force-push the changes with <code>git push --force</code>.
+      </li>
+    </ol>
+    <p>This should change the author of the specified commit.</p>
+  </body>
+</html>
